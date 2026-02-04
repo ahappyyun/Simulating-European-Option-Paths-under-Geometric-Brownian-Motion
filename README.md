@@ -55,3 +55,37 @@ Using \( N \) simulated paths:
 \widehat{V}_0
 = e^{-rT}\frac{1}{N}\sum_{i=1}^N \text{Payoff}^{(i)}.
 \]
+
+---
+
+Binomial (Cox–Ross–Rubinstein) Tree
+
+Divide \([0,T]\) into \(M\) steps with \(\Delta t = T/M\).
+The stock moves up/down each step:
+\[
+S_{n+1} =
+\begin{cases}
+uS_n & \text{(up)} \\
+dS_n & \text{(down)}
+\end{cases}
+\]
+
+CRR parameters:
+\[
+u = e^{\sigma\sqrt{\Delta t}}, \quad d = e^{-\sigma\sqrt{\Delta t}} = \frac{1}{u}.
+\]
+
+Risk-neutral probability:
+\[
+p = \frac{e^{(r-q)\Delta t} - d}{u-d}.
+\]
+
+European payoff at maturity:
+- Call: \( (S_T-K)^+ \)
+- Put: \( (K-S_T)^+ \)
+
+Price via backward induction:
+\[
+V_n(j) = e^{-r\Delta t}\Big(p\,V_{n+1}(j+1) + (1-p)\,V_{n+1}(j)\Big),
+\]
+starting from terminal payoffs at \(n=M\).
