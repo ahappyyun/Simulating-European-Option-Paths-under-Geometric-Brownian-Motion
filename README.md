@@ -58,7 +58,7 @@ Using \( N \) simulated paths:
 
 ---
 
-### Binomial (Cox–Ross–Rubinstein) Tree
+### Binomial Tree
 
 Divide \([0,T]\) into \(M\) steps with \(\Delta t = T/M\).
 The stock moves up/down each step:
