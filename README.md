@@ -155,8 +155,7 @@ where \( b_x = \partial b / \partial x \).
 
 \[
 dX_t
-= \kappa(\theta - X_t)\,dt
-+ \sigma \sqrt{1 + X_t^2}\,dW_t,
+= \kappa(\theta - X_t)\,dt + \sigma \sqrt{1 + X_t^2}\,dW_t,
 \qquad X_0 = x_0.
 \]
 
@@ -174,8 +173,7 @@ Y_t = \log S_t .
 Assume \( Y_t \) satisfies
 \[
 dY_t
-= \mu(t, Y_t)\,dt
-+ \sigma(t, Y_t)\,dW_t,
+= \mu(t, Y_t)\,dt + \sigma(t, Y_t)\,dW_t,
 \qquad Y_0 = \log S_0.
 \]
 
@@ -193,7 +191,7 @@ dY_t
 \]
 where the volatility depends on the log-price.
 
-This SDE generally has **no closed-form solution**, but can be simulated using
+This SDE generally has no closed-form solution**, but can be simulated using
 Euler–Maruyama or Milstein applied to \( Y_t \).
 ---
 
