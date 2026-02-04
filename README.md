@@ -151,20 +151,50 @@ where \( b_x = \partial b / \partial x \).
 
 ---
 
-### Example: nonlinear stochastic volatility SDE
+### Example 1: nonlinear diffusion SDE
 
-As a concrete example, consider the following SDE:
 \[
 dX_t
 = \kappa(\theta - X_t)\,dt
 + \sigma \sqrt{1 + X_t^2}\,dW_t,
-\qquad X_0 = x_0,
+\qquad X_0 = x_0.
 \]
-where \( \kappa > 0 \), \( \theta \in \mathbb{R} \), and \( \sigma > 0 \).
 
-This model has **state-dependent diffusion** and does not admit a closed-form solution,
-so numerical schemes such as Euler–Maruyama or Milstein are required to simulate its paths.
+This model has state-dependent volatility and no analytic solution.
 
+---
+
+### Example 2: log-price SDE (positivity-preserving)
+
+To ensure positivity of stock prices, it is common to model the **log-price**
+\[
+Y_t = \log S_t .
+\]
+
+Assume \( Y_t \) satisfies
+\[
+dY_t
+= \mu(t, Y_t)\,dt
++ \sigma(t, Y_t)\,dW_t,
+\qquad Y_0 = \log S_0.
+\]
+
+The stock price is then recovered by
+\[
+S_t = e^{Y_t},
+\]
+which guarantees \( S_t > 0 \) almost surely.
+
+A typical example is
+\[
+dY_t
+= \left( r - \tfrac12 \sigma(Y_t)^2 \right) dt
++ \sigma(Y_t)\,dW_t,
+\]
+where the volatility depends on the log-price.
+
+This SDE generally has **no closed-form solution**, but can be simulated using
+Euler–Maruyama or Milstein applied to \( Y_t \).
 ---
 
 ### Key idea
